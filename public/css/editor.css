@@ -1,0 +1,238 @@
+.document-editor {
+  border: 1px solid var(--ck-color-base-border);
+  border-radius: var(--ck-border-radius);
+
+  /* Set vertical boundaries for the document editor. */
+  max-height: 700px;
+
+  /* This element is a flex container for easier rendering. */
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.document-editor__toolbar {
+  /* Make sure the toolbar container is always above the editable. */
+  z-index: 1;
+
+  /* Create the illusion of the toolbar floating over the editable. */
+  box-shadow: 0 0 5px hsla( 0,0%,0%,.2 );
+
+  /* Use the CKEditor CSS variables to keep the UI consistent. */
+  border-bottom: 1px solid var(--ck-color-toolbar-border);
+}
+
+/* Adjust the look of the toolbar inside the container. */
+.document-editor__toolbar .ck-toolbar {
+  border: 0;
+  border-radius: 0;
+}
+
+/* Make the editable container look like the inside of a native word processor application. */
+.document-editor__editable-container {
+  padding: calc( 2 * var(--ck-spacing-large) );
+  background: var(--ck-color-base-foreground);
+
+  /* Make it possible to scroll the "page" of the edited content. */
+  overflow-y: scroll;
+}
+
+.document-editor__editable-container .ck-editor__editable {
+  /* Set the dimensions of the "page". */
+  width: 15.8cm;
+  min-height: 21cm;
+
+  /* Keep the "page" off the boundaries of the container. */
+  padding: 1cm 2cm 2cm;
+
+  border: 1px hsl( 0,0%,82.7% ) solid;
+  border-radius: var(--ck-border-radius);
+  background: white;
+
+  /* The "page" should cast a slight shadow (3D illusion). */
+  box-shadow: 0 0 5px hsla( 0,0%,0%,.1 );
+
+  /* Center the "page". */
+  margin: 0 auto;
+}
+
+/* Set the default font for the "page" of the content. */
+.document-editor .ck-content,
+.document-editor .ck-heading-dropdown .ck-list .ck-button__label {
+    font: 16px/1.6 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Adjust the headings dropdown to host some larger heading styles. */
+.document-editor .ck-heading-dropdown .ck-list .ck-button__label {
+  line-height: calc( 1.7 * var(--ck-line-height-base) * var(--ck-font-size-base) );
+  min-width: 6em;
+}
+
+/* Scale down all heading previews because they are way too big to be presented in the UI.
+Preserve the relative scale, though. */
+.document-editor .ck-heading-dropdown .ck-list .ck-button:not(.ck-heading_paragraph) .ck-button__label {
+  transform: scale(0.8);
+  transform-origin: left;
+}
+
+/* Set the styles for "Heading 1". */
+.document-editor .ck-content h2,
+.document-editor .ck-heading-dropdown .ck-heading_heading1 .ck-button__label {
+  font-size: 2.18em;
+  font-weight: normal;
+}
+
+.document-editor .ck-content h2 {
+  line-height: 1.37em;
+  padding-top: .342em;
+  margin-bottom: .142em;
+}
+
+/* Set the styles for "Heading 2". */
+.document-editor .ck-content h3,
+.document-editor .ck-heading-dropdown .ck-heading_heading2 .ck-button__label {
+  font-size: 1.75em;
+  font-weight: normal;
+  color: hsl( 203, 100%, 50% );
+}
+
+.document-editor .ck-heading-dropdown .ck-heading_heading2.ck-on .ck-button__label {
+  color: var(--ck-color-list-button-on-text);
+}
+
+/* Set the styles for "Heading 2". */
+.document-editor .ck-content h3 {
+  line-height: 1.86em;
+  padding-top: .171em;
+  margin-bottom: .357em;
+}
+
+/* Set the styles for "Heading 3". */
+.document-editor .ck-content h4,
+.document-editor .ck-heading-dropdown .ck-heading_heading3 .ck-button__label {
+  font-size: 1.31em;
+  font-weight: bold;
+}
+
+.document-editor .ck-content h4 {
+  line-height: 1.24em;
+  padding-top: .286em;
+  margin-bottom: .952em;
+}
+
+/* Set the styles for "Paragraph". */
+.document-editor .ck-content p {
+  font-size: 1em;
+  line-height: 1.63em;
+  padding-top: .5em;
+  margin-bottom: 1.13em;
+}
+
+/* Make the block quoted text serif with some additional spacing. */
+.document-editor .ck-content blockquote {
+  font-family: Georgia, serif;
+  margin-left: calc( 2 * var(--ck-spacing-large) );
+  margin-right: calc( 2 * var(--ck-spacing-large) );
+}
+
+.variable {
+  background: #FFFFFF;
+  border: 1px solid #D1D5DB;
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.variable .label {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+.variable .label i {
+  display: block;
+  font-size: 12px;
+  color: #6B7280;
+  margin-bottom: 5px;
+}
+
+.variable .required {
+  background: #6B7280;
+  color: #FFFFFF;
+  border-radius: 4px;
+}
+
+.variable .required label {
+  all: unset;
+}
+
+.editor-action {
+  background: var(--accent-f2f2f2);
+  border-radius: 4px;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem 0.5rem 0rem 0.5rem;
+}
+
+.editor-action .row {
+  margin: 0px!important;
+}
+
+.editor-action .row .col-lg-3 {
+  padding-right: 5px!important;
+  padding-left: 5px!important;
+}
+
+.editor-action .action {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: 0px!important;
+  padding: 10px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #000000;
+}
+
+.editor-action .action:hover {
+  background: #ececec;
+}
+
+.editor-action .action i {
+  display: block;
+  font-size: 32px;
+  color: #6B7280;
+  margin-bottom: 4px;
+}
+
+.mention {
+  margin: 0 2px;
+  padding: 2px 6px;
+  background: #FFF0C0;
+  font-size: 13px;
+  line-height: 14px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-user-modify: read-only;
+}
+
+#container {
+  width: 1000px;
+  margin: 20px auto;
+}
+.ck-editor__editable[role="textbox"] {
+  /* editing area */
+  min-height: 200px;
+}
+.ck-content .image {
+  /* block images */
+  max-width: 80%;
+  margin: 20px auto;
+}

@@ -1,0 +1,52 @@
+.bg-login {
+    background: url("../img/bg-login.svg");
+    background-size: cover;
+    width: 100%;
+    height: 91vh;
+    position: absolute;
+    z-index: 1;
+}
+
+.login-card {
+    background: linear-gradient(90deg, #00b0e4 0%, #00e4d6 100%);
+    color: white;
+    border-radius: 10px;
+    width: 100%;
+    margin: auto;
+}
+
+@media screen and (max-width: 1200px) {
+    .login-card {
+        width: 80%;
+    }
+    .login-card form {
+        width: 70%;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .login-card {
+        width: 100%;
+    }
+
+    .login-card form {
+        width: 80%;
+        margin: auto;
+    }
+}
+
+.login-card form {
+    width: 90%;
+    margin: auto;
+}
+
+.card-login {
+    z-index: 2;
+}
+
+.text-login {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+}
